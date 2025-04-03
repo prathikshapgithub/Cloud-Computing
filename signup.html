@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up for your Cloud Computing account.">
+    <title>Sign Up - Cloud Computing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #b3a4d1, #6a5acd);
+            color: white;
+        }
+        header {
+            background: linear-gradient(to right, #6a5acd, #b3a4d1);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+            background: linear-gradient(to right, #e6e6fa, #d8bfd8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            color: #333;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #6a5acd;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #5a4bbd;
+        }
+        footer {
+            background: linear-gradient(to right, #b3a4d1, #6a5acd);
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Validate Name
+            if (name === "") {
+                alert("Name is required.");
+                return;
+            }
+
+            // Validate Email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Validate Phone Number
+            const phonePattern = /^\d{10}$/; // Adjust this pattern as needed
+            if (!phonePattern.test(phone)) {
+                alert("Please enter a valid phone number (10 digits).");
+                return;
+            }
+
+            // Validate Password
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return;
+            }
+
+            // If all validations pass, submit the form
+            alert("Sign Up successful!"); // Replace this with actual sign-up logic
+            // Optionally, redirect to index.html
+            // window.location.href = "index.html";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        Sign Up for Cloud Computing
+    </header>
+    <main>
+        <section>
+            <h2>Create Your Account</h2>
+            <form  action="index.html" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Cloud Computing Guide
+    </footer>
+</body>
+</html>
